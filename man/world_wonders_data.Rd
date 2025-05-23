@@ -8,13 +8,14 @@ world_wonders_data()
 }
 \value{
 A data frame with columns: \code{name}, \code{lat}, \code{lng},
-and \code{info}.
+\code{info}, \code{continent}, \code{type}, and \code{year}.
 }
 \description{
-This function returns a data frame containing the names, coordinates
-(latitude and longitude), and descriptions of the New 7 Wonders of the World.
-The data can be used to generate map markers and informational popups in a
-Shiny app or Leaflet map.
+This function returns a data frame with information about the New 7 Wonders
+of the World. The dataset includes each wonder's name, geographic coordinates,
+description, site type, and approximate year of origin.
+This data can be used to generate map markers and informational popups
+in a Shiny app.
 }
 \examples{
 wonders <- world_wonders_data()

@@ -7,18 +7,20 @@
 create_wonders_map(wonders_df)
 }
 \arguments{
-\item{wonders_df}{A data frame containing columns: \code{name}, \code{lat},
-\code{lng}, and \code{info}.}
+\item{wonders_df}{A data frame containing wonder information with columns:
+\code{name} (character), \code{lat} (numeric), \code{lng} (numeric),
+\code{info} (character), \code{continent} (character), \code{type} (character),
+and \code{year} (numeric).}
 }
 \value{
-A \code{leaflet} map object.
+A \code{leaflet} map object with color-coded markers and
+informational popups.
 }
 \description{
 This function uses the \code{leaflet} package and OpenStreetMap tiles to
 generate an interactive map with markers for each of the New 7 Wonders of the
-World.
-Clicking on a marker displays an informational popup about the corresponding
-wonder.
+World. Clicking on a marker displays an informational popup about the corresponding
+wonder. Markers are color-coded by structure type for easy visual distinction.
 }
 \examples{
 \dontrun{
