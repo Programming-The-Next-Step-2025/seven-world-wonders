@@ -13,9 +13,6 @@
 #' @import dplyr
 #' @export
 run_wonders_app <- function() {
-  library(shiny)
-  library(leaflet)
-  library(dplyr)
 
   wonders <- world_wonders_data()
 
@@ -52,27 +49,20 @@ run_wonders_app <- function() {
       )
     )
   )
-
   server <- function(input, output, session) {
-
     filtered_data <- reactive({
       df <- wonders
-
       if (input$continent != "All") {
         df <- df %>% filter(continent == input$continent)
       }
-
       if (length(input$type) > 0) {
         df <- df %>% filter(type %in% input$type)
       } else {
         df <- df[FALSE, ]
       }
-
       df <- df %>% filter(year >= input$year[1] & year <= input$year[2])
-
       return(df)
     })
-
     output$wondersMap <- renderLeaflet({
       filtered <- filtered_data()
       if (nrow(filtered) > 0) {
@@ -83,7 +73,6 @@ run_wonders_app <- function() {
           setView(lng = 0, lat = 20, zoom = 2)
       }
     })
-
     output$filter_summary <- renderText({
       filtered <- filtered_data()
       paste("Showing", nrow(filtered), "of", nrow(wonders), "wonders")

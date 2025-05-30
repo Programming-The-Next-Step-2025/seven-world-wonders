@@ -1,11 +1,14 @@
 Package: sevenworldwonders
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Interactive Map Displaying the New Seven World Wonders
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Odeta Tase
+Maintainer: Odeta Tase <odeta.tase@student.uva.nl>
+Description: This package provides comprehensive tools to explore, visualize,
+    and learn about the Seven Wonders of the World.
+    It includes an interactive Shiny app that displays these wonders on a map 
+    with detailed descriptions. Users can filter the wonders on year, location, 
+    and type of wonder.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
@@ -14,3 +17,7 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    leaflet,
+    shiny
