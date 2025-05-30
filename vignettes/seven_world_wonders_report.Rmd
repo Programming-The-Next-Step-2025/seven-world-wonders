@@ -1,0 +1,67 @@
+---
+title: "seven_world_wonders_report"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{seven_world_wonders_report}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(sevenworldwonders)
+```
+In this vignette, we discuss the functionality of the R package sevenworldwonders, 
+which provides an interactive Shiny application to explore the New Seven Wonders 
+of the World through geographic visualization and filtering capabilities. The 
+package contains three main functions that work together to create an educational mapping experience.
+
+
+## Seven World Wonders Dataset
+
+The world_wonders_data() function returns a comprehensive dataset about each 
+wonder. 
+
+```{r}
+wonders <- world_wonders_data()
+print(wonders)
+```
+
+
+The dataset includes geographic coordinates, continental classification, structure types (Military, Religious, Residential, Entertainment), and construction years spanning from 700 BCE to 1931 CE. Each wonder also contains detailed descriptive information for educational purposes.
+
+## Creating the Wonders Map
+
+The create_wonders_map() function generates an interactive leaflet map with color-coded markers representing different structure types:
+
+```{r}
+map <- create_wonders_map(wonders)
+map
+```
+The map features include:
+Color-coded markers: Red (Military), Blue (Religious), Green (Residential), Orange (Entertainment)
+Interactive popups: Click markers to view detailed information including continent, construction year, and historical context
+Hover labels: Display wonder names on mouseover
+Legend: Visual guide to marker color meanings
+
+
+## The Shiny Seven World Wonders App
+
+The run_wonders_app() function launches the full interactive application:
+``` {r}
+run_wonders_app()
+```
+
+The application provides three filtering options:
+Continent Filter: Dropdown selection allowing users to focus on specific geographic regions (Asia, Europe, South America, North America) or view all wonders simultaneously.
+Structure Type Filter: Checkbox group enabling selection of multiple structure types. Users can compare similar structures across different time periods and cultures.
+Construction Year Filter: Dual-handle slider covering the full historical range (700 BCE to 1931 CE), useful for exploring wonders from specific historical eras.
+
+
+
